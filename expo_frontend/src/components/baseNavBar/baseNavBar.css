@@ -1,0 +1,13 @@
+#main-navbar .navbar {
+  transition: background .5s ease-in-out,padding .5s ease-in-out;
+}
+
+.top-nav-collapse {
+  background-color: #343434 !important;
+}
+
+@media (max-width: 768px) {
+  #main-navbar .navbar:not(.top-nav-collapse) {
+      background: #343434 !important;
+  }
+}

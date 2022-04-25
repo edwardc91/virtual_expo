@@ -1,0 +1,11 @@
+#main-view-files {
+  background-image: url('../../statics/images/Penn-Tech-2-2-1170x500.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 80vh;
+}
+
+@media (max-width: 740px) {
+  #main-view-files {
+    height: 100vh; } }

@@ -24,7 +24,7 @@ SECRET_KEY = '9rpt4m%zu0ijfrw#k96hf+v^zc--n!=x6rx#iw9uxo@dx4=g6)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'localhost:3000', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -62,12 +63,8 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-    ),
-
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ],
 }
 
@@ -137,6 +134,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "statics"),
+)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+MEDIA_URL = "/media/"
 
 ASGI_APPLICATION = 'virtual_expo.routing.application'
 

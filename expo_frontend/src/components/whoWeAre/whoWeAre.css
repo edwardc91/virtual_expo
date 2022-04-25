@@ -1,0 +1,11 @@
+#who-we-are .view {
+  background-image: url('../../statics/images/ddjpeople.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+@media (max-width: 740px) {
+  #who-we-are .view {
+    height: 100vh; } }
